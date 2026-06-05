@@ -1,0 +1,13 @@
+DELIMITER //
+
+CREATE PROCEDURE CreateSeatingChartTable()
+BEGIN
+    CREATE TABLE IF NOT EXISTS `seating_chart` (
+        FLOOR_SEAT_SEQ INT AUTO_INCREMENT PRIMARY KEY,
+        FLOOR_NO INT,
+        SEAT_NO INT
+    );
+END //
+
+DELIMITER ;
+
