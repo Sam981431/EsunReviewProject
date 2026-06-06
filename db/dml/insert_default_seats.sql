@@ -1,6 +1,6 @@
 DELIMITER //
 
-CREATE PROCEDURE InsertDefaultSeats()
+CREATE PROCEDURE insert_default_seats()
 BEGIN
     DECLARE floor_idx INT DEFAULT 1;
     DECLARE seat_idx INT DEFAULT 1;

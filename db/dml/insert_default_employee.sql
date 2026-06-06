@@ -1,6 +1,6 @@
 DELIMITER //
 
-CREATE PROCEDURE InsertDefaultEmployee()
+CREATE PROCEDURE insert_default_employee()
 BEGIN
     START TRANSACTION;
         INSERT INTO employee (`EMP_ID`, `NAME`, `EMAIL`, `FLOOR_SEAT_SEQ`) 

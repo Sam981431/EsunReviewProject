@@ -1,0 +1,53 @@
+<div class="page">
+  <div class="header-row">
+    <div>
+      <h1>座位選擇</h1>
+      <p>請點選要分配給當前員工的座位。</p>
+    </div>
+
+    <div class="employee-select">
+      <label for="employee">當前員工：</label>
+      <select
+        id="employee"
+        v-model="currentEmployeeId"
+        :disabled="loading || availableEmployees.length === 0"
+      >
+        <option v-if="loading" disabled>載入中...</option>
+        <option v-else :value="null">請選擇員工</option>
+        <option v-for="employee in availableEmployees" :key="employee.id" :value="employee.id">
+          {{ employeeCode(employee) }}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <div class="seat-grid">
+    <button
+      v-for="seat in seatList"
+      :key="seat.seatSeq"
+      :class="['seat', seatStatusClass(seat.seatSeq)]"
+      type="button"
+      :disabled="loading"
+      @click="assignSeat(seat.seatSeq)"
+    >
+      <span>
+        {{ seat.floorNo }}樓: 座位{{ seat.seatNo }}
+        <small v-if="assignments[seat.seatSeq]"
+          >[員編: {{ assignedEmployeeCode(seat.seatSeq) }}]</small
+        >
+      </span>
+    </button>
+  </div>
+
+  <div class="controls">
+    <button type="button" class="submit-button" @click="submitAssignments" :disabled="loading">
+      送出
+    </button>
+  </div>
+
+  <div class="status">
+    <span v-if="loading">資料載入中...</span>
+    <span v-else>已分配 {{ selectedCount }} 個座位</span>
+    <span v-if="submitStatus" class="submit-status">{{ submitStatus }}</span>
+  </div>
+</div>

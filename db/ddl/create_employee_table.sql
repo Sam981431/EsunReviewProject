@@ -1,6 +1,6 @@
 DELIMITER //
 
-CREATE PROCEDURE CreateEmployeeTable()
+CREATE PROCEDURE create_employee_table()
 BEGIN
     CREATE TABLE IF NOT EXISTS `employee` (
         EMP_ID INT AUTO_INCREMENT PRIMARY KEY,
