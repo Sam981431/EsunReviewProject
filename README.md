@@ -12,7 +12,7 @@
 ## 📂 專案結構
 
 ```text
-/frontend  # Vue 3 前端
+/frontend  # Vue 3 前端 \n
 /backend   # Spring Boot 後端
 /sql       # 資料庫指令碼
 ```
@@ -21,10 +21,10 @@
 
 ### 1. 資料庫
 
-db_name: esun_seat_db
-username: root
-password: mysql
-請先引入所有Store_Procedure避免資料庫操作失敗。
+- db_name: esun_seat_db
+- username: root
+- password: mysql
+- 請先引入所有Store_Procedure避免資料庫操作失敗。
 
 ### 2. 後端 (Spring Boot)
 
